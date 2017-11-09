@@ -1,3 +1,5 @@
+#My method
+=begin
 def substrings(string, dictionary)
     #if string has multiple words, break string down to words
     string = string.split(' ')
@@ -20,6 +22,18 @@ def substrings(string, dictionary)
                 matches[word] == nil ? matches[word] = 1 : matches[word] += 1
             end 
         end 
+    end
+    puts matches
+end
+=end
+
+#Improved method after looking at github user funwithcthulhu's code
+
+def substrings(string, dictionary)
+    matches = {}
+    dictionary.each do |word|
+        count = string.downcase.scan(word).size
+        matches[word] = count if count > 0
     end
     puts matches
 end
